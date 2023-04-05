@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import './Navbar.css'
 
 function BasicExample() {
   return (
@@ -16,7 +17,7 @@ function BasicExample() {
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto mx-5 ">
             <li class="nav-item ">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link" href="/">Hlome</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/signup">Sign Up</a>

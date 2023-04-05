@@ -10,9 +10,12 @@ import './SignUp.css'
 import { useFormik } from 'formik'
 import { SignUpSchema } from '../../Schema'
 
+import { useNavigate } from 'react-router-dom';
+
 //bootstrap
 
 const Signup = () => {
+    const navigate = useNavigate()
 
     const formik = useFormik({
         initialValues: {
@@ -24,6 +27,10 @@ const Signup = () => {
         validationSchema: SignUpSchema
     })
     console.log(formik)
+
+    const logg = () => {
+        navigate('/login')
+    }
 
     return (
         <>
@@ -70,6 +77,8 @@ const Signup = () => {
                                         <Form.Group className='my-1'><strong><span>Already A user? <a href="./login">Login</a>.</span></strong></Form.Group>
                                         <div className="text-left my-0">
                                             <Button className="btn btn-primary my-3 align-center" type="submit">Register</Button>
+
+
                                         </div>
 
                                     </Form>
