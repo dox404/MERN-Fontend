@@ -7,30 +7,36 @@ import './Navbar.css'
 function BasicExample() {
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-light text-white border" id="nav-main-div">
-        {/* <a class="navbar-brand" href="/">Navbar</a> */}
-        <a class="navbar-brand" href="/"> <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="shoping Cart icon" className="navbar-logo" /></a>
-        {/* <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="shoping Cart icon" className="navbar-logo" /> */}
-        {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <div className="conatiner">
+        <div className="row">
+        <div className="col-sm-12">
+          <nav class="navbar navbar-expand-lg navbar-light text-white fixed-top font-wight-bold" id="nav-main-div">
+            {/* <a class="navbar-brand" href="/">Navbar</a> */}
+            <a class="navbar-brand" href="/"> <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="shoping Cart icon" className="navbar-logo" /></a>
+            {/* <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="shoping Cart icon" className="navbar-logo" /> */}
+            {/* <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button> */}
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto mx-5 ">
-            <li class="nav-item ">
-              <a class="nav-link" href="/">Hlome</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/signup">Sign Up</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about">About</a>
-            </li>
-          </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto mx-5 ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/signup">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/about">About</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
-      </nav>
+      </div>
+      </div>
     </>
   );
 }

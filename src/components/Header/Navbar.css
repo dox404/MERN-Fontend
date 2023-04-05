@@ -1,3 +1,18 @@
-#nav-main-div{
-    background:transparent;
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Josefin+Slab:wght@100&display=swap');
+
+
+
+#nav-main-div {
+    background: transparent;
+    font-family: 'Anton', sans-serif;
+    /* font-family: 'Josefin Slab', serif; */
+    color:black;
+
+}
+
+#navbarNav ul li:hover{
+    background-color: rgb(255, 255, 255);
+    /* color:white; */
+  
+
 }

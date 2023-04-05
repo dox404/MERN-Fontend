@@ -1,23 +1,51 @@
 import React from 'react'
 import './Home.css'
+import Carousel from 'react-bootstrap/Carousel';
 
 const Home = () => {
   return (
-   <>
-    <div className="conatiner-fluid" id="main-container">
-      {/* <h1 className="text-center">This is homepage</h1> */}
-
-      {/* <img src="https://muffingroup.com/blog/wp-content/uploads/2021/03/Demuxed-2020.jpg" alt="homepage img" id="homepage-img"/> */}
-      <div className="row">
-        <div className="col-6">
-         <h1 className="text-center my-5"> Welcome to our page</h1>
-         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </div>
-        
-      </div>
-
-     </div>
-   </>
+    <>
+      <Carousel>
+        <Carousel.Item interval={1000}>
+          <img
+            className="d-block carousel-img"
+            
+            src="https://images.pexels.com/photos/15100534/pexels-photo-15100534.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="First slide"
+          />
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item interval={500}>
+          <img
+            className="d-block carousel-img"
+            
+            src="https://images.pexels.com/photos/413195/pexels-photo-413195.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Second slide"
+          />
+          <Carousel.Caption>
+            <h3>Second slide label</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block carousel-img"
+         
+            src="https://images.pexels.com/photos/1445416/pexels-photo-1445416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            alt="Third slide"
+          />
+          <Carousel.Caption>
+            <h3>Third slide label</h3>
+            <p>
+              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            </p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+    </>
   )
 }
 

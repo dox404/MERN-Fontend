@@ -1,7 +1,8 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Login from '../Login/Login'
+
+import axios from 'axios';
 
 import './SignUp.css'
 
@@ -10,12 +11,30 @@ import './SignUp.css'
 import { useFormik } from 'formik'
 import { SignUpSchema } from '../../Schema'
 
-import { useNavigate } from 'react-router-dom';
 
 //bootstrap
 
 const Signup = () => {
-    const navigate = useNavigate()
+
+    const registerUser = () => {
+
+
+        axios.post('http://localhost:5000/signup', {
+            name:formik.values.fullname,
+            email:formik.values.email,
+            password: formik.values.password
+
+
+
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    
+    }
 
     const formik = useFormik({
         initialValues: {
@@ -26,17 +45,13 @@ const Signup = () => {
         },
         validationSchema: SignUpSchema
     })
-    console.log(formik)
-
-    const logg = () => {
-        navigate('/login')
-    }
+    console.log(formik.values.fullname)
 
     return (
         <>
             <div className="container-fluid text" id="main-conatiner">
                 <div className="row">
-                    <h1 className="my-5 text-center">Sign<span style={{ color: "red" }}>Up</span></h1>
+                    <h1 className="my-5 text-center" id="heading">Sign<span style={{ color: "red" }}>Up</span></h1>
                     {/* <div className="col-12 text-center">
                                
                             </div> */}
@@ -53,7 +68,7 @@ const Signup = () => {
                                 <div className="col-sm-12 col-xl-6" id="form">
 
                                     <h3 className="font-weight-bold my-3">Welcome,</h3>
-                                    <Form className="my-5 p-2" onSubmit={formik.handleSubmit}>
+                                    <Form method=" POST" className="my-5 p-2" >
                                         <Form.Group>
                                             <Form.Label><strong>Full Name:</strong></Form.Label>
                                             <Form.Control id="fullname" type="text" placeholder="Enter Full Name" value={formik.values.fullname} onChange={formik.handleChange} />
@@ -74,9 +89,24 @@ const Signup = () => {
                                             <Form.Control id="confirm_password" type="password" placeholder="Confirm Password" value={formik.values.confirm_password} onChange={formik.handleChange} />
                                             {formik.errors.confirm_password && formik.touched.confirm_password ? <span className="form-error" style={{ color: "red" }}>{formik.errors.confirm_password}</span> : ""}
                                         </Form.Group>
+                                        {/* <Form.Group>
+                                            <div class="form-check">
+
+                                                <label for="gender">Gender:</label>
+                                                <input type="radio" id="male" name="gender" value="male" />
+                                                <label for="male">Male</label>
+                                                <input type="radio" id="female" name="gender" value="female" />
+                                                <label for="css">Female</label>
+                                                <input type="radio" id="other" name="gender" value="Other" />
+                                                <label for="Other">Other</label>
+
+                                            </div>
+
+                                        </Form.Group> */}
                                         <Form.Group className='my-1'><strong><span>Already A user? <a href="./login">Login</a>.</span></strong></Form.Group>
+
                                         <div className="text-left my-0">
-                                            <Button className="btn btn-primary my-3 align-center" type="submit">Register</Button>
+                                            <Button className="btn btn-primary my-3 align-center" onClick={registerUser} type="submit">Register</Button>
 
 
                                         </div>
@@ -100,26 +130,4 @@ export default Signup
 
 
 
-// form
-{/* <div className="col-xs-12 col-sm-12 col-lg-4 border my-5" id="main">
-                <h1 className="text-center">SignUp</h1>
-                    <Form className="my-5">
-                        <Form.Group>
-                            <Form.Label>Full Name:</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Full Name" id="name"/>
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Email:</Form.Label>
-                            <Form.Control type="email" placeholder="Enter Email" id="email"/>
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Enter Password" id="password"/>
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Confirm Password:</Form.Label>
-                            <Form.Control type="password" placeholder="Confirm Password" id="password"/>
-                        </Form.Group>
-                        <Button className="btn btn-primary my-1" type="submit">Register</Button>
-                    </Form>
-                </div> */}
+
