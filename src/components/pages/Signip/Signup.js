@@ -1,11 +1,10 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+// css
 import './SignUp.css'
-
 
 // validation
 import { useFormik } from 'formik'
@@ -16,25 +15,7 @@ import { SignUpSchema } from '../../Schema'
 
 const Signup = () => {
 
-    const registerUser = () => {
-
-
-        axios.post('http://localhost:5000/signup', {
-            name:formik.values.fullname,
-            email:formik.values.email,
-            password: formik.values.password
-
-
-
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    
-    }
+    const navigate = useNavigate()
 
     const formik = useFormik({
         initialValues: {
@@ -45,7 +26,29 @@ const Signup = () => {
         },
         validationSchema: SignUpSchema
     })
-    console.log(formik.values.fullname)
+
+    const registerUser = () => {
+
+
+        axios.post('http://localhost:5000/signup', {
+            name: formik.values.fullname,
+            email: formik.values.email,
+            password: formik.values.password
+        })
+            .then(function (response) {
+                navigate('/')
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+
+
+
+    }
+
+
+    console.log(formik)
 
     return (
         <>
@@ -68,7 +71,7 @@ const Signup = () => {
                                 <div className="col-sm-12 col-xl-6" id="form">
 
                                     <h3 className="font-weight-bold my-3">Welcome,</h3>
-                                    <Form method=" POST" className="my-5 p-2" >
+                                    <Form className="my-5 p-2" method='POST' onSubmit={formik.handleSubmit} >
                                         <Form.Group>
                                             <Form.Label><strong>Full Name:</strong></Form.Label>
                                             <Form.Control id="fullname" type="text" placeholder="Enter Full Name" value={formik.values.fullname} onChange={formik.handleChange} />
@@ -89,24 +92,11 @@ const Signup = () => {
                                             <Form.Control id="confirm_password" type="password" placeholder="Confirm Password" value={formik.values.confirm_password} onChange={formik.handleChange} />
                                             {formik.errors.confirm_password && formik.touched.confirm_password ? <span className="form-error" style={{ color: "red" }}>{formik.errors.confirm_password}</span> : ""}
                                         </Form.Group>
-                                        {/* <Form.Group>
-                                            <div class="form-check">
 
-                                                <label for="gender">Gender:</label>
-                                                <input type="radio" id="male" name="gender" value="male" />
-                                                <label for="male">Male</label>
-                                                <input type="radio" id="female" name="gender" value="female" />
-                                                <label for="css">Female</label>
-                                                <input type="radio" id="other" name="gender" value="Other" />
-                                                <label for="Other">Other</label>
-
-                                            </div>
-
-                                        </Form.Group> */}
                                         <Form.Group className='my-1'><strong><span>Already A user? <a href="./login">Login</a>.</span></strong></Form.Group>
 
                                         <div className="text-left my-0">
-                                            <Button className="btn btn-primary my-3 align-center" onClick={registerUser} type="submit">Register</Button>
+                                            <Button className="btn btn-primary my-3 align-center" type="submit" onClick={registerUser}>Register</Button>
 
 
                                         </div>
