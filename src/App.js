@@ -17,10 +17,10 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
-       <ToastContainer />
-      <Navbar/>
+      <ToastContainer />
+      <Navbar />
       <Routes />
-    
+
     </>
   )
 }

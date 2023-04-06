@@ -11,7 +11,7 @@ import Card from 'react-bootstrap/Card';
 import { useFormik } from 'formik'
 import { LoginSchema } from '../../Schema'
 
-function Login() {
+function Login(props) {
 
 
   const formik = useFormik({
@@ -25,14 +25,14 @@ function Login() {
   console.log(formik)
   return (
     <>
-      <div className="container">
-        <div className="row">
-          <div className="col-4">
+      {/* <div className="container"> */}
+        {/* <div className="row"> */}
+          {/* <div className="col-4"> */}
 
-          </div>
-          <div className="col-xl-4 col-sm-12 col-lg-4 border" id='main'>
+          {/* </div> */}
+          {/* <div className="col-xl-4 col-sm-12 col-lg-4 border" id='main'> */}
 
-            <div >
+            {/* <div > */}
 
               <Form className="mx-auto my-5 w-50" onSubmit={formik.handleSubmit}>
                 <h1>Login</h1>
@@ -40,9 +40,7 @@ function Login() {
                   <Form.Label>Email address</Form.Label>
                   <Form.Control type="email" placeholder="Enter email" id="email" value={formik.values.email} onChange={formik.handleChange} />
                   {formik.errors.email && formik.touched.email ? <span>{formik.errors.email}</span> : ""}
-                  {/* <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text> */}
+
                 </Form.Group>
 
                 <Form.Group className="mb-3">
@@ -54,14 +52,15 @@ function Login() {
                 <Button className="btn btn-primary btn-lg" type="submit">
                   Submit
                 </Button>
+                <Button onClick={() => props.onFormSwitch('Signup')}>Dont have any account?? register here</Button>
               </Form>
-            </div>
-          </div>
-          <div className="col-4">
+            {/* </div> */}
+          {/* </div> */}
+          {/* <div className="col-4"> */}
 
-          </div>
-        </div>
-      </div>
+          {/* </div> */}
+        {/* </div> */}
+      {/* </div> */}
     </>
 
 

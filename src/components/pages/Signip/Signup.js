@@ -18,7 +18,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const Signup = () => {
+const Signup = (props) => {
 
     // const [emailErr, setEmailErr] = useState(false);
     const navigate = useNavigate()
@@ -60,7 +60,7 @@ const Signup = () => {
         onSubmit,
         validationSchema: SignUpSchema
     })
-   
+
     // const regis = (values) => {
     //     axios.post('http://localhost:5000/signup', {
     //         name: formik.values.fullname,
@@ -91,26 +91,27 @@ const Signup = () => {
 
     return (
         <>
-            <div className="container-fluid text" id="main-conatiner">
-                <div className="row">
-                    <h1 className="my-5 text-center" id="heading">Sign<span style={{ color: "red" }}>Up</span></h1>
+            {/* <div className="container-fluid text" id="main-conatiner"> */}
+                {/* <div className="row"> */}
+                    {/* <h1 className="my-5 text-center" id="heading">Sign<span style={{ color: "red" }}>Up</span></h1> */}
                     {/* <div className="col-12 text-center">
                                
                             </div> */}
                     {/* <div className="col-6"><h1>This is 2nd container</h1></div> */}
-                    <div className="row justify-content-center align-items-center p-0" id="login-div">
-                        <div className="col-sm-12 col-xl-6 p-0" id="main-login">
-                            <div className="row p-0">
-                                <div className="col-sm-12 col-xl-6 d-none d-sm-block">
-                                    <div className="w-100" style={{ height: "100%" }}>
+                    {/* <div className="row justify-content-center align-items-center p-0" id="login-div"> */}
+                        {/* <div className="col-sm-12 col-xl-6 p-0" id="main-login"> */}
+                            {/* <div className="row p-0"> */}
+                                {/* <div className="col-sm-12 col-xl-6 d-none d-sm-block"> */}
+                                    {/* <div className="w-100" style={{ height: "100%" }}>
                                         <img src='https://images.unsplash.com/photo-1517733340021-9762be68f73a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80' style={{ height: "100%", width: "100%" }} />
-                                    </div>
+                                    </div> */}
                                     {/* <p style={{ position: "absolute" }}>hii</p> */}
-                                </div>
-                                <div className="col-sm-12 col-xl-6" id="form">
+                                {/* </div> */}
+                                {/* <div className="col-sm-12 col-xl-6" id="form"> */}
 
-                                    <h3 className="font-weight-bold my-3">Welcome,</h3>
+                                    {/* <h3 className="font-weight-bold my-3">Welcome,</h3> */}
                                     <Form className="my-5 p-2" method='POST' onSubmit={formik.handleSubmit} >
+                                    <h1 className="my-5 text-center" id="heading">Sign<span style={{ color: "red" }}>Up</span></h1>
                                         <Form.Group>
                                             <Form.Label><strong>Full Name:</strong></Form.Label>
                                             <Form.Control id="fullname" type="text" placeholder="Enter Full Name" value={formik.values.fullname} onChange={formik.handleChange} />
@@ -132,24 +133,25 @@ const Signup = () => {
                                             {formik.errors.confirm_password && formik.touched.confirm_password ? <span className="form-error" style={{ color: "red" }}>{formik.errors.confirm_password}</span> : ""}
                                         </Form.Group>
 
-                                        <Form.Group className='my-1'><strong><span>Already A user? <a href="./login">Login</a>.</span></strong></Form.Group>
+                                        {/* <Form.Group className='my-1'><strong><span>Already A user? <a href="./login">Login</a>.</span></strong></Form.Group> */}
 
                                         <div className="text-left my-0">
                                             <Button className="btn btn-primary my-3 align-center" type="submit" >Register</Button>
 
 
                                         </div>
+                                        <Button onClick={()=>props.onFormSwitch('Login')}>Already Have an account? Login here</Button>
 
                                     </Form>
-                                </div>
-                            </div>
+                                {/* </div> */}
+                            {/* </div> */}
 
 
-                        </div>
-                    </div>
-                </div>
+                        {/* </div> */}
+                    {/* </div> */}
+                {/* </div> */}
 
-            </div>
+            {/* </div> */}
         </>
     )
 }
