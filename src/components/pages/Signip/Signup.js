@@ -1,22 +1,54 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
 // css
 import './SignUp.css'
 
 // validation
 import { useFormik } from 'formik'
 import { SignUpSchema } from '../../Schema'
+import { validEmail } from '../../Schema';
 
 
-//bootstrap
+// toast
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Signup = () => {
 
+    // const [emailErr, setEmailErr] = useState(false);
     const navigate = useNavigate()
+    const onSubmit = (values) => {
+        // const data = JSON.stringify(values)
+        axios.post('http://localhost:5000/signup', {
+            name: values.fullname,
+            email: values.email,
+            password: values.password
 
+        })
+            .then(function (response) {
+                toast.success('Sign Up SucessFull', {
+                    position: "top-center",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+                console.log(values)
+                navigate('/')
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }
     const formik = useFormik({
         initialValues: {
             fullname: "",
@@ -24,31 +56,38 @@ const Signup = () => {
             password: "",
             confirm_password: ""
         },
+        validateOnBlur: true,
+        onSubmit,
         validationSchema: SignUpSchema
     })
+   
+    // const regis = (values) => {
+    //     axios.post('http://localhost:5000/signup', {
+    //         name: formik.values.fullname,
+    //         email: formik.values.email,
+    //         password: formik.values.password
+    //     })
+    //         .then(function (response) {
+    //             toast.success('Sign Up SucessFull', {
+    //                 position: "top-center",
+    //                 autoClose: 5000,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: true,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //                 theme: "light",
+    //             });
+    //             navigate('/')
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });
+    // }
+    // //  console.log(formik.handleSubmit)
 
-    const registerUser = () => {
 
-
-        axios.post('http://localhost:5000/signup', {
-            name: formik.values.fullname,
-            email: formik.values.email,
-            password: formik.values.password
-        })
-            .then(function (response) {
-                navigate('/')
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
-
-
-
-    }
-
-
-    console.log(formik)
+    // console.log(formik)
 
     return (
         <>
@@ -96,7 +135,7 @@ const Signup = () => {
                                         <Form.Group className='my-1'><strong><span>Already A user? <a href="./login">Login</a>.</span></strong></Form.Group>
 
                                         <div className="text-left my-0">
-                                            <Button className="btn btn-primary my-3 align-center" type="submit" onClick={registerUser}>Register</Button>
+                                            <Button className="btn btn-primary my-3 align-center" type="submit" >Register</Button>
 
 
                                         </div>

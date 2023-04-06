@@ -8,12 +8,16 @@ import Navbar from './components/Header/Navbar'
 import Footer from './components/Footer/Footer';
 
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 
 function App() {
   return (
     <>
-      
+       <ToastContainer />
       <Navbar/>
       <Routes />
     
