@@ -39,14 +39,14 @@ function Login(props) {
                 <Form.Group className="mb-3">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control type="email" placeholder="Enter email" id="email" value={formik.values.email} onChange={formik.handleChange} />
-                  {formik.errors.email && formik.touched.email ? <span>{formik.errors.email}</span> : ""}
+                  {formik.errors.email && formik.touched.email ? <span className='form-error' style={{ color:"red"}}>{formik.errors.email}</span> : ""}
 
                 </Form.Group>
 
                 <Form.Group className="mb-3">
                   <Form.Label>Password</Form.Label>
                   <Form.Control type="password" id="password" placeholder="Password" value={formik.values.password} onChange={formik.handleChange} />
-                  {formik.errors.password && formik.touched.password ? <span style={{ color: "red" }}>{formik.errors.password}</span> : ""}
+                  {formik.errors.password && formik.touched.password ? <span className='form-error' style={{ color:"red"}}>{formik.errors.password}</span> : ""}
                 </Form.Group>
 
                 <Button className="btn btn-primary btn-lg" type="submit">
