@@ -9,7 +9,7 @@ import Card from 'react-bootstrap/Card';
 
 //form validation
 import { useFormik } from 'formik'
-import { LoginSchema } from '../../Schema'
+import { LoginSchema } from '../Schema'
 
 function Login(props) {
 
@@ -34,7 +34,7 @@ function Login(props) {
 
             {/* <div > */}
 
-              <Form className="mx-auto my-5 w-50" onSubmit={formik.handleSubmit}>
+              <Form className="mx-auto my-5 w-50" method="POST" onSubmit={formik.handleSubmit}>
                 <h1>Login</h1>
                 <Form.Group className="mb-3">
                   <Form.Label>Email address</Form.Label>

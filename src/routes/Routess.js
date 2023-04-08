@@ -1,9 +1,9 @@
-import { BrowserRouter, Routes, Route} from "react-router-dom";
-import Login from './Login/Login'
-import Home from './Home/Home'
-import About from './About/About'
-import Signup from './Signip/Signup'
-import Join from './Join/Join'
+import {Routes, Route} from "react-router-dom";
+import Login from '../components/Login/Login'
+import Home from '../Pages/Home/Home'
+import About from '../Pages/About/About'
+import Signup from '../components/Signip/Signup'
+import Join from '../Pages/Join/Join'
 const Pages = () => {
     return (
         <>

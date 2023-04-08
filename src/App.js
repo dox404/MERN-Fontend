@@ -1,14 +1,14 @@
 
 import './App.css';
-import Login from './components/pages/Login/Login'
-import Home from './components/pages/Home/Home'
-import About from './components/pages/About/About'
-import Routes from './components/pages/Routess'
+// import Login from './components/Login/Login'
+// import Home from './Pages/Home/Home'
+// import About from './Pages/About/About'
+import Routes from './routes/Routess'
 import Navbar from './components/Header/Navbar'
-import Footer from './components/Footer/Footer';
+// import Footer from './components/Footer/Footer';
 
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -16,10 +16,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <>
+    <><div className="app">
       <ToastContainer />
       <Navbar />
       <Routes />
+      </div>
 
     </>
   )

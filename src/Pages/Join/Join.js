@@ -1,18 +1,19 @@
-import Reac,{useState} from 'react'
-import Login from '../Login/Login'
-import Signup from '../Signip/Signup'
+import Reac, { useState } from 'react'
+import Login from '../../components/Login/Login'
+import Signup from '../../components/Signip/Signup'
+import './Join.css'
 
 const Join = () => {
-    const [currentForm,setCurrentForm]=useState('Login')
+    const [currentForm, setCurrentForm] = useState('Login')
 
-    const toggleForm=(formName)=>{
+    const toggleForm = (formName) => {
         setCurrentForm(formName)
     }
-  return (
-    <div>
-      <div className="container-fluid text" id="main-conatiner">
+    return (
+        <div>
+            <div className="container-fluid text" id="main-conatiner">
                 <div className="row">
-                    
+
                     {/* <div className="col-12 text-center">
                                
                             </div> */}
@@ -30,7 +31,7 @@ const Join = () => {
 
                                     <h3 className="font-weight-bold my-3">Welcome,</h3>
                                     {
-                                        currentForm === 'Login' ? <Login  onFormSwitch={toggleForm}/>:<Signup  onFormSwitch={toggleForm}/>
+                                        currentForm === 'Login' ? <Login onFormSwitch={toggleForm} /> : <Signup onFormSwitch={toggleForm} />
                                     }
                                 </div>
                             </div>
@@ -41,8 +42,8 @@ const Join = () => {
                 </div>
 
             </div>
-    </div>
-  )
+        </div>
+    )
 }
 
 export default Join

@@ -22,11 +22,14 @@ function BasicExample() {
                 <li class="nav-item ">
                   <a class="nav-link" href="/">Home</a>
                 </li>
-                <li class="nav-item">
+                {/* <li class="nav-item">
                   <a class="nav-link" href="/signup">Sign Up</a>
-                </li>
+                </li> */}
+                {/* <li class="nav-item">
+                  <a class="nav-link" href="/join/login">Login</a>
+                </li> */}
                 <li class="nav-item">
-                  <a class="nav-link" href="/login">Login</a>
+                  <a class="nav-link" href="/join">Login/Signup</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/about">About</a>

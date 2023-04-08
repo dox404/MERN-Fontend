@@ -9,8 +9,8 @@ import './SignUp.css'
 
 // validation
 import { useFormik } from 'formik'
-import { SignUpSchema } from '../../Schema'
-import { validEmail } from '../../Schema';
+import { SignUpSchema } from '../Schema'
+import { validEmail } from '../Schema';
 
 
 // toast
@@ -41,8 +41,9 @@ const Signup = (props) => {
                     progress: undefined,
                     theme: "light",
                 });
-                console.log(values)
+                // console.log(values)
                 navigate('/')
+                return values
             })
             .catch(function (error) {
                 console.log(error);
