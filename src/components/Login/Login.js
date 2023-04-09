@@ -17,19 +17,23 @@ import axios from 'axios';
 
 
 //toast
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function Login(props) {
+  const navigate = useNavigate()
 
-const navigate=useNavigate()
+
   const onSubmit = (values) => {
     axios.post('http://localhost:5000/login', {
       email: values.email,
       password: values.password
 
     }).then(function (response) {
-      toast.success('login SucessFull', {
+      if (response) {
+        localStorage.setItem('user', response.data)
+        console.log(response)
+        toast.success('login SucessFull', {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -38,15 +42,23 @@ const navigate=useNavigate()
           draggable: true,
           progress: undefined,
           theme: "light",
-      });
-      // console.log(values)
-      navigate('/about')
-      // return values
-  })
-  .catch(function (error) {
-      console.log(error);
-  });
-  }
+        })
+        navigate('/about')
+        return response
+      }
+    }).catch(function (error) {
+      toast.error(error, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      }); 
+    })
+}
 
   const formik = useFormik({
     initialValues: {
