@@ -24,6 +24,17 @@ function Login(props) {
   const navigate = useNavigate()
 
 
+//   function store(key,value,expire) {
+//     let obj = {
+//         time:new Date().getTime(),
+//         value:value,
+//         expire:expire,
+//     }
+//     // You can only store strings
+//     let objStr = JSON.stringify(obj);
+//     localStorage.setItem(key,objStr);
+// }
+
   const onSubmit = (values) => {
     axios.post('http://localhost:5000/login', {
       email: values.email,
@@ -31,8 +42,11 @@ function Login(props) {
 
     }).then(function (response) {
       if (response) {
-        localStorage.setItem('user', response.data)
-        console.log(response)
+        localStorage.setItem('user',JSON.stringify(response.data),60000)
+        
+        // store('user',response.data,30000)
+
+        // console.log(response.data)
         toast.success('login SucessFull', {
           position: "top-center",
           autoClose: 5000,
@@ -44,6 +58,10 @@ function Login(props) {
           theme: "light",
         })
         navigate('/about')
+       const lock= localStorage.getItem('user')
+       const data=JSON.parse(lock)
+       console.log(data.name)
+        // console.log(response.data)
         return response
       }
     }).catch(function (error) {
@@ -109,7 +127,6 @@ function Login(props) {
       {/* </div> */}
       {/* </div> */}
       {/* <div className="col-4"> */}
-
       {/* </div> */}
       {/* </div> */}
       {/* </div> */}

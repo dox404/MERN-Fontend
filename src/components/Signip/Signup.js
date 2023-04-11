@@ -42,7 +42,7 @@ const Signup = (props) => {
                     theme: "light",
                 });
                 // console.log(values)
-                navigate('/')
+                navigate('/login')
                 return values
             })
             .catch(function (error) {
