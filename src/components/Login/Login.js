@@ -24,16 +24,7 @@ function Login(props) {
   const navigate = useNavigate()
 
 
-//   function store(key,value,expire) {
-//     let obj = {
-//         time:new Date().getTime(),
-//         value:value,
-//         expire:expire,
-//     }
-//     // You can only store strings
-//     let objStr = JSON.stringify(obj);
-//     localStorage.setItem(key,objStr);
-// }
+
 
   const onSubmit = (values) => {
     axios.post('http://localhost:5000/login', {
