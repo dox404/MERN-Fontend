@@ -62,30 +62,6 @@ const Signup = (props) => {
         validationSchema: SignUpSchema
     })
 
-    // const regis = (values) => {
-    //     axios.post('http://localhost:5000/signup', {
-    //         name: formik.values.fullname,
-    //         email: formik.values.email,
-    //         password: formik.values.password
-    //     })
-    //         .then(function (response) {
-    //             toast.success('Sign Up SucessFull', {
-    //                 position: "top-center",
-    //                 autoClose: 5000,
-    //                 hideProgressBar: false,
-    //                 closeOnClick: true,
-    //                 pauseOnHover: true,
-    //                 draggable: true,
-    //                 progress: undefined,
-    //                 theme: "light",
-    //             });
-    //             navigate('/')
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }
-    // //  console.log(formik.handleSubmit)
 
 
     console.log(formik)
