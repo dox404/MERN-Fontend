@@ -4,6 +4,7 @@ import Home from '../Pages/Home/Home'
 import About from '../Pages/About/About'
 import Signup from '../components/Signip/Signup'
 import Join from '../Pages/Join/Join'
+import Profile from '../Pages/Profile/Profile'
 const Pages = () => {
     return (
         <>
@@ -12,10 +13,11 @@ const Pages = () => {
 
             <Routes>
                
-                    <Route exact path='/login' element={<Login />}></Route>
+                    {/* <Route exact path='/login' element={<Login />}></Route> */}
                     <Route path='/' element={<Home />}></Route>
                     <Route path='/about' element={<About />}></Route>
-                    <Route path='/signup' element={<Signup/>}></Route>
+                    {/* <Route path='/signup' element={<Signup/>}></Route> */}
+                    <Route path='/profile' element={<Profile/>}></Route>
                     <Route path='/join' element={<Join/>}></Route>
                 
             </Routes>
