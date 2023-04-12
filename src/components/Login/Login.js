@@ -48,7 +48,7 @@ function Login(props) {
           progress: undefined,
           theme: "light",
         })
-        navigate('/about')
+        navigate('/')
        const lock= localStorage.getItem('user')
        const data=JSON.parse(lock)
        console.log(data.name)
@@ -56,7 +56,7 @@ function Login(props) {
         return response
       }
     }).catch(function (error) {
-      toast.error(error, {
+      toast.error(error.response.data, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -66,6 +66,7 @@ function Login(props) {
         progress: undefined,
         theme: "light",
       }); 
+      // console.log(error.response.data)
     })
 }
 

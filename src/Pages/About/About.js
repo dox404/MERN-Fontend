@@ -1,19 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './About.css'
-const About = () => {
-const user=localStorage.getItem('user')
-const data=JSON.parse(user)
+import React from 'react'
 
+const About = () => {
   return (
-    <>
-    
-  <p>lorem ipsum dolor sit amet, consectetur adip</p>
- 
-    </>
-     
-   
-   
+    <div>
+      <h1>This is about</h1>
+    </div>
   )
 }
 

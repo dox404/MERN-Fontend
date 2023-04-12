@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import Profile from '../../Pages/Profile/Profile'
 import './Navbar.css'
 import { useNavigate } from 'react-router-dom';
 
@@ -58,6 +59,7 @@ const navigate=useNavigate()
       <Nav.Link href="/">Home</Nav.Link>
      
       <Nav.Link href="/about">About</Nav.Link>
+      <Nav.Link href="/profile">profile</Nav.Link>
       {
         data ? <button onClick={Clear}>LogOut</button>:<Nav.Link href="/join">Login/Signup</Nav.Link>
       }
