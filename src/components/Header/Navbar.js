@@ -7,17 +7,17 @@ import './Navbar.css'
 import { useNavigate } from 'react-router-dom';
 
 function BasicExample() {
-  const data=localStorage.getItem('user')
+  const data = localStorage.getItem('user')
 
-const navigate=useNavigate()
-  const Clear=()=>{
+  const navigate = useNavigate()
+  const Clear = () => {
     localStorage.clear()
     navigate('/login')
   }
   return (
     <>
 
-   {/* react- bootstrap  */}
+      {/* react- bootstrap  */}
       {/* <div className="conatiner">
         <div className="row">
           <div className="col-sm-12">
@@ -50,26 +50,33 @@ const navigate=useNavigate()
 
 
 
-<Navbar bg="light text-white fixed-top" expand="lg">
-<Container>
-  <Navbar.Brand href="/"><img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="shoping Cart icon" className="navbar-logo" /></Navbar.Brand>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="me-auto">
-      <Nav.Link href="/">Home</Nav.Link>
-     
-      <Nav.Link href="/about">About</Nav.Link>
-      <Nav.Link href="/profile">profile</Nav.Link>
-      {
-        data ? <button onClick={Clear}>LogOut</button>:<Nav.Link href="/join">Login/Signup</Nav.Link>
-      }
-      
-      
-      
-    </Nav>
-  </Navbar.Collapse>
-</Container>
-</Navbar>
+      <Navbar bg="light text-white fixed-top" expand="lg">
+        <Container>
+          <Navbar.Brand href="/"><img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="shoping Cart icon" className="navbar-logo" /></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+
+              <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link href="/profile">profile</Nav.Link>
+              <Nav.Link href="/blog">Blog</Nav.Link>
+
+
+
+              {
+                data ?
+                  <button onClick={Clear}>LogOut</button>
+
+                  : <Nav.Link href="/join">Login/Signup</Nav.Link>
+              }
+
+
+
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
 
     </>

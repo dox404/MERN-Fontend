@@ -57,7 +57,7 @@ const Home = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>hey</h3>
+          <h3>Welcome</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
